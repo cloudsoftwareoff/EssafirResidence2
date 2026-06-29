@@ -1,0 +1,149 @@
+{
+  "en": {
+    "site_title": "Essafir Residence - Comfortable & Affordable Stay",
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "rooms": "Our Rooms",
+      "price": "Price",
+      "contact": "Contact Us",
+      "language": "Language"
+    },
+    "home": {
+      "book_title": "Book a Room Online",
+      "book_button": "Book Now",
+      "about_title": "About Essafir Residence",
+      "about_description": "Welcome to Essafir Residence, where comfort and security meet. We offer stylish rooms with modern furniture, 24-hour security service, fast WiFi, daily cleaning, free parking, and excellent reception.",
+      "gallery_title": "Our Rooms",
+      "contact_title": "Contact Us"
+    },
+    "about": {
+      "page_title": "About Us",
+      "title": "About Essafir Residence",
+      "description": "Welcome to Essafir Residence, where comfort and security meet. We offer stylish rooms with modern furniture, 24-hour security service, fast WiFi, daily cleaning, free parking, and excellent reception."
+    },
+    "rooms": {
+      "page_title": "Our Rooms",
+      "title": "Discover Our Rooms"
+    },
+    "price": {
+      "page_title": "Pricing",
+      "title": "Our Prices"
+    },
+    "contact": {
+      "page_title": "Contact Us",
+      "title": "Get in Touch",
+      "address": "Sidi Bouzid, Al-Taqasim, Louiza Building, First Floor",
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "message": "Message",
+        "send": "Send Message"
+      }
+    },
+    "footer": {
+      "contact_title": "Contact Us",
+      "menu_title": "Menu Links",
+      "copyright": "© 2025 All Rights Reserved."
+    }
+  },
+  "fr": {
+    "site_title": "Résidence Essafir - Séjour Confortable et Abordable",
+    "nav": {
+      "home": "Accueil",
+      "about": "À propos",
+      "rooms": "Nos Chambres",
+      "price": "Prix",
+      "contact": "Contactez-nous",
+      "language": "Langue"
+    },
+    "home": {
+      "book_title": "Réserver une chambre en ligne",
+      "book_button": "Réservez maintenant",
+      "about_title": "À propos de la Résidence Essafir",
+      "about_description": "Bienvenue à Essafir Residence, où confort et sécurité se rencontrent. Nous offrons des chambres élégantes avec des meubles modernes, un service de sécurité 24h/24, WiFi rapide, nettoyage quotidien, parking gratuit et un excellent accueil.",
+      "gallery_title": "Nos Chambres",
+      "contact_title": "Contactez-nous"
+    },
+    "about": {
+      "page_title": "À propos de nous",
+      "title": "À propos de la Résidence Essafir",
+      "description": "Bienvenue à Essafir Residence, où confort et sécurité se rencontrent. Nous offrons des chambres élégantes avec des meubles modernes, un service de sécurité 24h/24, WiFi rapide, nettoyage quotidien, parking gratuit et un excellent accueil."
+    },
+    "rooms": {
+      "page_title": "Nos Chambres",
+      "title": "Découvrez Nos Chambres"
+    },
+    "price": {
+      "page_title": "Tarifs",
+      "title": "Nos Prix"
+    },
+    "contact": {
+      "page_title": "Contactez-nous",
+      "title": "Contactez-nous",
+      "address": "Sidi Bouzid, Al-Taqasim, Bâtiment Louiza, Premier Étage",
+      "form": {
+        "name": "Nom",
+        "email": "Email",
+        "phone": "Téléphone",
+        "message": "Message",
+        "send": "Envoyer"
+      }
+    },
+    "footer": {
+      "contact_title": "Contactez-nous",
+      "menu_title": "Liens du menu",
+      "copyright": "© 2025 Tous droits réservés."
+    }
+  },
+  "ar": {
+    "site_title": "إقامة السفير - إقامة مريحة وبأسعار معقولة",
+    "nav": {
+      "home": "الرئيسية",
+      "about": "حول",
+      "rooms": "غرفنا",
+      "price": "السعر",
+      "contact": "اتصل بنا",
+      "language": "اللغة"
+    },
+    "home": {
+      "book_title": "احجز غرفة عبر الإنترنت",
+      "book_button": "احجز الآن",
+      "about_title": "عن إقامة السفير",
+      "about_description": "مرحبًا بك في إقامة السفير، حيث يجتمع الراحة والأمان. نقدم غرف أنيقة مع أثاث حديث، خدمة حراسة 24 ساعة، WiFi سريع، تنظيف يومي، مواقف سيارات مجانية واستقبال ممتاز.",
+      "gallery_title": "غرفنا",
+      "contact_title": "اتصل بنا"
+    },
+    "about": {
+      "page_title": "من نحن",
+      "title": "عن إقامة السفير",
+      "description": "مرحبًا بك في إقامة السفير، حيث يجتمع الراحة والأمان. نقدم غرف أنيقة مع أثاث حديث، خدمة حراسة 24 ساعة، WiFi سريع، تنظيف يومي، مواقف سيارات مجانية واستقبال ممتاز."
+    },
+    "rooms": {
+      "page_title": "غرفنا",
+      "title": "اكتشف غرفنا"
+    },
+    "price": {
+      "page_title": "الأسعار",
+      "title": "أسعارنا"
+    },
+    "contact": {
+      "page_title": "اتصل بنا",
+      "title": "تواصل معنا",
+      "address": "سيدي بوزيد، التقاسيم، مبنى لويزا، الطابق الأول",
+      "form": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "message": "الرسالة",
+        "send": "إرسال"
+      }
+    },
+    "footer": {
+      "contact_title": "اتصل بنا",
+      "menu_title": "روابط القائمة",
+      "copyright": "© 2025 جميع الحقوق محفوظة."
+    }
+  }
+}
