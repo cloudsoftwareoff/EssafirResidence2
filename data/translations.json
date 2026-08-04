@@ -1,149 +1,353 @@
 {
   "en": {
-    "site_title": "Essafir Residence - Comfortable & Affordable Stay",
+    "site_title": "Essafir Residence — Room Rental & Accommodation in Sidi Bouzid, Tunisia",
     "nav": {
       "home": "Home",
-      "about": "About",
-      "rooms": "Our Rooms",
-      "price": "Price",
-      "contact": "Contact Us",
-      "language": "Language"
+      "residence": "The Residence",
+      "rooms": "Rooms",
+      "amenities": "Amenities",
+      "location": "Location",
+      "contact": "Contact"
     },
-    "home": {
-      "book_title": "Book a Room Online",
-      "book_button": "Book Now",
-      "about_title": "About Essafir Residence",
-      "about_description": "Welcome to Essafir Residence, where comfort and security meet. We offer stylish rooms with modern furniture, 24-hour security service, fast WiFi, daily cleaning, free parking, and excellent reception.",
-      "gallery_title": "Our Rooms",
-      "contact_title": "Contact Us"
+    "hero": {
+      "title": "A Sanctuary of Calm in Sidi Bouzid",
+      "sub": "Clean, secure, and comfortable room rentals at Essafir Residence Sidi Bouzid, Tunisia. Ideal for short stays, professionals, and students.",
+      "cta_whatsapp": "Book via WhatsApp",
+      "cta_explore": "Explore Rooms"
     },
-    "about": {
-      "page_title": "About Us",
-      "title": "About Essafir Residence",
-      "description": "Welcome to Essafir Residence, where comfort and security meet. We offer stylish rooms with modern furniture, 24-hour security service, fast WiFi, daily cleaning, free parking, and excellent reception."
+    "residence": {
+      "title": "Tailored for Focus & Peace",
+      "desc": "Essafir Residence provides a calm, clean, and highly secure environment in Sidi Bouzid. Primarily designed for professionals on business trips and students seeking a quiet, focused living space, we offer modern comforts without unnecessary flashiness.",
+      "feat_security_title": "24/7 Security & Support",
+      "feat_security_desc": "On-site guardian and secure entry systems ensure absolute peace of mind day and night.",
+      "feat_wifi_title": "Workspace Ready",
+      "feat_wifi_desc": "Fast, high-speed WiFi coverage in every room for seamless video calls and remote work.",
+      "feat_parking_title": "Private Free Parking",
+      "feat_parking_desc": "Reserved parking spaces inside a safe perimeter for your peace of mind."
     },
     "rooms": {
-      "page_title": "Our Rooms",
-      "title": "Discover Our Rooms"
+      "title": "Available Rooms & Rates",
+      "sub": "Clean, structured rooms designed with a focus on hygiene, work, and comfort.",
+      "night": "per night",
+      "standard_title": "Standard Room",
+      "deluxe_title": "Deluxe Room",
+      "family_title": "Family Suite",
+      "popular": "Recommended"
     },
-    "price": {
-      "page_title": "Pricing",
-      "title": "Our Prices"
+    "calculator": {
+      "title": "Estimate Your Stay",
+      "select_room": "Select Room Type",
+      "checkin": "Check-in Date",
+      "checkout": "Check-out Date",
+      "nights": "Number of Nights",
+      "estimate": "Estimated Cost",
+      "book_calc": "Request Booking via WhatsApp"
+    },
+    "reviews": {
+      "eyebrow": "Guest Reviews",
+      "title": "Trusted by Professionals & Students",
+      "sub": "Here is what our guests have to say about their experience at Essafir Residence Sidi Bouzid.",
+      "google_maps": "Read verified reviews on Google Maps",
+      "item1_text": "Extremely clean, peaceful, and secure place in Sidi Bouzid. The high-speed WiFi was perfect for my remote work assignments.",
+      "item1_author": "Sami Ben Ali",
+      "item1_role": "Visiting Engineer",
+      "item2_text": "Ideal location close to local hubs. The guardian is very helpful, and the room was quiet enough for my university exam preparation.",
+      "item2_author": "Mariem Kheder",
+      "item2_role": "Graduate Student",
+      "item3_text": "Great value for money. Modern air conditioning, very clean private bathroom, and safe parking for my car.",
+      "item3_author": "Youssef Mansouri",
+      "item3_role": "Business Consultant"
+    },
+    "gallery": {
+      "title": "Residence Photo Gallery",
+      "sub": "Take a virtual walkthrough of our rooms, study spaces, and welcoming environment.",
+      "img1": "Standard Room",
+      "img2": "Private Living Room",
+      "img3": "Twin Room",
+      "img4": "Deluxe Room",
+      "img5": "Standard Single Room",
+      "img6": "Comfort Double Room",
+      "img7": "Quiet Study Space",
+      "img8": "Kitchenette",
+      "img9": "Family Suite"
+    },
+    "amenities": {
+      "title": "Essential Comforts",
+      "sub": "Every convenience you need to support your professional routine, maintained daily.",
+      "security": "24/7 Security",
+      "security_desc": "Dedicated guardian and CCTV surveillance.",
+      "wifi": "Free High-Speed WiFi",
+      "wifi_desc": "Reliable connection for work and study.",
+      "ac": "Air Conditioning",
+      "ac_desc": "Individually controlled climate control.",
+      "tv": "Smart TV",
+      "tv_desc": "Streaming-ready TV in your room.",
+      "bathroom": "Private Bathroom",
+      "bathroom_desc": "Clean, modern private bathroom with hot water.",
+      "cleaning": "Daily Cleaning",
+      "cleaning_desc": "Daily maintenance and linen service.",
+      "parking": "Free Parking",
+      "parking_desc": "On-site designated safe parking."
+    },
+    "location": {
+      "title": "Located in Sidi Bouzid",
+      "sub": "Easily accessible, situated in a peaceful neighborhood close to administrative and study hubs.",
+      "address_label": "Address",
+      "address_value": "Louiza Building, First Floor, Al-Taqasim, Sidi Bouzid, Tunisia",
+      "proximity_title": "Strategic Proximity",
+      "proximity_desc": "Perfectly situated within 5 minutes of local administrative centers, schools, and transit, making it ideal for visiting professionals and short-stay students."
     },
     "contact": {
-      "page_title": "Contact Us",
-      "title": "Get in Touch",
-      "address": "Sidi Bouzid, Al-Taqasim, Louiza Building, First Floor",
-      "form": {
-        "name": "Name",
-        "email": "Email",
-        "phone": "Phone",
-        "message": "Message",
-        "send": "Send Message"
-      }
+      "title": "Connect with Us",
+      "sub": "Have questions or ready to book? Send us a message or contact our team directly.",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Your Message",
+      "send": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again or book directly via WhatsApp.",
+      "wa_title": "Direct Booking",
+      "wa_desc": "For instant confirmation, contact us directly on WhatsApp.",
+      "response_time": "Usually responds in ~15 mins"
     },
     "footer": {
-      "contact_title": "Contact Us",
-      "menu_title": "Menu Links",
-      "copyright": "© 2025 All Rights Reserved."
+      "desc": "A trusted room rental residence in Sidi Bouzid offering clean, quiet, and secure rooms for professionals and students.",
+      "copyright": "© 2026 Essafir Residence. All rights reserved."
     }
   },
   "fr": {
-    "site_title": "Résidence Essafir - Séjour Confortable et Abordable",
+    "site_title": "Résidence Essafir — Location de Chambres & Hébergement à Sidi Bouzid, Tunisie",
     "nav": {
       "home": "Accueil",
-      "about": "À propos",
-      "rooms": "Nos Chambres",
-      "price": "Prix",
-      "contact": "Contactez-nous",
-      "language": "Langue"
+      "residence": "La Résidence",
+      "rooms": "Chambres",
+      "amenities": "Équipements",
+      "location": "Localisation",
+      "contact": "Contact"
     },
-    "home": {
-      "book_title": "Réserver une chambre en ligne",
-      "book_button": "Réservez maintenant",
-      "about_title": "À propos de la Résidence Essafir",
-      "about_description": "Bienvenue à Essafir Residence, où confort et sécurité se rencontrent. Nous offrons des chambres élégantes avec des meubles modernes, un service de sécurité 24h/24, WiFi rapide, nettoyage quotidien, parking gratuit et un excellent accueil.",
-      "gallery_title": "Nos Chambres",
-      "contact_title": "Contactez-nous"
+    "hero": {
+      "title": "Un havre de calme à Sidi Bouzid",
+      "sub": "Des chambres propres, sécurisées et confortables à la Résidence Essafir Sidi Bouzid, Tunisie. Idéal pour les courts séjours, professionnels et étudiants.",
+      "cta_whatsapp": "Réserver via WhatsApp",
+      "cta_explore": "Voir les Chambres"
     },
-    "about": {
-      "page_title": "À propos de nous",
-      "title": "À propos de la Résidence Essafir",
-      "description": "Bienvenue à Essafir Residence, où confort et sécurité se rencontrent. Nous offrons des chambres élégantes avec des meubles modernes, un service de sécurité 24h/24, WiFi rapide, nettoyage quotidien, parking gratuit et un excellent accueil."
+    "residence": {
+      "title": "Conçu pour la concentration et le calme",
+      "desc": "La Résidence Essafir offre un environnement calme, propre et hautement sécurisé à Sidi Bouzid. Principalement conçue pour les professionnels en voyage d'affaires et les étudiants recherchant un espace de vie propice à l'étude, nous offrons un confort moderne en toute simplicité.",
+      "feat_security_title": "Sécurité 24/7",
+      "feat_security_desc": "Un gardien sur place et des accès sécurisés garantissent une tranquillité d'esprit absolue.",
+      "feat_wifi_title": "Prêt pour le travail",
+      "feat_wifi_desc": "Connexion WiFi haut débit stable dans toutes les chambres pour vos réunions et études en ligne.",
+      "feat_parking_title": "Parking gratuit privé",
+      "feat_parking_desc": "Des places de stationnement réservées à l'intérieur d'un périmètre sécurisé."
     },
     "rooms": {
-      "page_title": "Nos Chambres",
-      "title": "Découvrez Nos Chambres"
+      "title": "Chambres & Tarifs",
+      "sub": "Chambres spacieuses et propres, adaptées aux courts et longs séjours.",
+      "night": "par nuit",
+      "standard_title": "Chambre Standard",
+      "deluxe_title": "Chambre Deluxe",
+      "family_title": "Suite Familiale",
+      "popular": "Recommandé"
     },
-    "price": {
-      "page_title": "Tarifs",
-      "title": "Nos Prix"
+    "calculator": {
+      "title": "Simulateur de Séjour",
+      "select_room": "Type de chambre",
+      "checkin": "Date d'arrivée",
+      "checkout": "Date de départ",
+      "nights": "Nombre de nuits",
+      "estimate": "Montant estimé",
+      "book_calc": "Demander à réserver via WhatsApp"
+    },
+    "reviews": {
+      "eyebrow": "Avis de nos Clients",
+      "title": "La Confiance des Professionnels & Étudiants",
+      "sub": "Découvrez les retours d'expérience de nos résidents à la Résidence Essafir Sidi Bouzid.",
+      "google_maps": "Consulter les avis vérifiés sur Google Maps",
+      "item1_text": "Un endroit extrêmement propre, calme et sécurisé à Sidi Bouzid. Le WiFi haut débit était parfait pour mon travail à distance.",
+      "item1_author": "Sami Ben Ali",
+      "item1_role": "Ingénieur en mission",
+      "item2_text": "Emplacement idéal proche des administrations. Le gardien est très serviable et la chambre était très silencieuse pour préparer mes examens.",
+      "item2_author": "Mariem Kheder",
+      "item2_role": "Étudiante en Master",
+      "item3_text": "Excellent rapport qualité-prix. Climatisation moderne, salle de bain privée très propre et parking sécurisé pour ma voiture.",
+      "item3_author": "Youssef Mansouri",
+      "item3_role": "Consultant d'affaires"
+    },
+    "gallery": {
+      "title": "Galerie de la Résidence",
+      "sub": "Visitez virtuellement nos chambres, nos espaces d'étude et notre cadre de vie agréable.",
+      "img1": "Chambre Standard",
+      "img2": "Salon Privé",
+      "img3": "Chambre Lits Jumeaux",
+      "img4": "Chambre Deluxe",
+      "img5": "Chambre Simple Standard",
+      "img6": "Chambre Double Confort",
+      "img7": "Espace d'Étude Calme",
+      "img8": "Kitchenette",
+      "img9": "Suite Familiale"
+    },
+    "amenities": {
+      "title": "Équipements Essentiels",
+      "sub": "Tout le confort nécessaire pour soutenir votre quotidien professionnel, entretenu chaque jour.",
+      "security": "Sécurité 24/7",
+      "security_desc": "Gardien dédié et caméras de surveillance.",
+      "wifi": "WiFi Gratuit Haut Débit",
+      "wifi_desc": "Connexion stable pour le travail et l'étude.",
+      "ac": "Climatisation",
+      "ac_desc": "Contrôle de température individuel.",
+      "tv": "Smart TV",
+      "tv_desc": "Téléviseur intelligent connecté dans la chambre.",
+      "bathroom": "Salle de bain privée",
+      "bathroom_desc": "Salle de bain propre avec eau chaude.",
+      "cleaning": "Nettoyage quotidien",
+      "cleaning_desc": "Entretien quotidien et service de linge.",
+      "parking": "Parking Gratuit",
+      "parking_desc": "Parking sécurisé réservé sur place."
+    },
+    "location": {
+      "title": "Situé à Sidi Bouzid",
+      "sub": "Facilement accessible, situé dans un quartier calme proche des centres administratifs et universitaires.",
+      "address_label": "Adresse",
+      "address_value": "Immeuble Louiza, Premier Étage, Al-Taqasim, Sidi Bouzid, Tunisie",
+      "proximity_title": "Proximité stratégique",
+      "proximity_desc": "Idéalement situé à moins de 5 minutes des administrations, écoles et transports locaux, parfait pour les professionnels et étudiants de passage."
     },
     "contact": {
-      "page_title": "Contactez-nous",
       "title": "Contactez-nous",
-      "address": "Sidi Bouzid, Al-Taqasim, Bâtiment Louiza, Premier Étage",
-      "form": {
-        "name": "Nom",
-        "email": "Email",
-        "phone": "Téléphone",
-        "message": "Message",
-        "send": "Envoyer"
-      }
+      "sub": "Des questions ou prêt à réserver ? Envoyez-nous un message ou contactez notre équipe.",
+      "name": "Nom complet",
+      "email": "Adresse e-mail",
+      "phone": "Numéro de téléphone",
+      "message": "Votre message",
+      "send": "Envoyer",
+      "success": "Message envoyé avec succès !",
+      "error": "Échec de l'envoi. Veuillez réessayer ou réserver via WhatsApp.",
+      "wa_title": "Réservation Directe",
+      "wa_desc": "Pour une confirmation instantanée, discutez directement avec nous sur WhatsApp.",
+      "response_time": "Réponse sous ~15 min"
     },
     "footer": {
-      "contact_title": "Contactez-nous",
-      "menu_title": "Liens du menu",
-      "copyright": "© 2025 Tous droits réservés."
+      "desc": "Une résidence de confiance à Sidi Bouzid offrant des chambres propres, calmes et sécurisées pour les professionnels et les exigences étudiantes.",
+      "copyright": "© 2026 Résidence Essafir. Tous droits réservés."
     }
   },
   "ar": {
-    "site_title": "إقامة السفير - إقامة مريحة وبأسعار معقولة",
+    "site_title": "إقامة السفير — كراء غرف وإقامة بمدينة سيدي بوزيد، تونس",
     "nav": {
       "home": "الرئيسية",
-      "about": "حول",
-      "rooms": "غرفنا",
-      "price": "السعر",
-      "contact": "اتصل بنا",
-      "language": "اللغة"
+      "residence": "عن الإقامة",
+      "rooms": "الغرف والأسعار",
+      "amenities": "الخدمات",
+      "location": "الموقع",
+      "contact": "الاتصال"
     },
-    "home": {
-      "book_title": "احجز غرفة عبر الإنترنت",
-      "book_button": "احجز الآن",
-      "about_title": "عن إقامة السفير",
-      "about_description": "مرحبًا بك في إقامة السفير، حيث يجتمع الراحة والأمان. نقدم غرف أنيقة مع أثاث حديث، خدمة حراسة 24 ساعة، WiFi سريع، تنظيف يومي، مواقف سيارات مجانية واستقبال ممتاز.",
-      "gallery_title": "غرفنا",
-      "contact_title": "اتصل بنا"
+    "hero": {
+      "title": "ملاذ من الهدوء في سيدي بوزيد",
+      "sub": "غرف مفروشة، نظيفة وآمنة في إقامة السفير بسيدي بوزيد، تونس. مخصصة للإقامات القصيرة، المهنيين، الموظفين، والطلبة.",
+      "cta_whatsapp": "احجز عبر واتساب",
+      "cta_explore": "اكتشف الغرف"
     },
-    "about": {
-      "page_title": "من نحن",
-      "title": "عن إقامة السفير",
-      "description": "مرحبًا بك في إقامة السفير، حيث يجتمع الراحة والأمان. نقدم غرف أنيقة مع أثاث حديث، خدمة حراسة 24 ساعة، WiFi سريع، تنظيف يومي، مواقف سيارات مجانية واستقبال ممتاز."
+    "residence": {
+      "title": "مصممة للتركيز والراحة",
+      "desc": "توفر إقامة السفير بيئة هادئة ونظيفة وآمنة للغاية في سيدي بوزيد. تم تصميمها بشكل أساسي للمهنيين والطلبة الذين يبحثون عن مساحة معيشة هادئة ومناسبة للمذاكرة والعمل، حيث نقدم وسائل الراحة الحديثة بكل بساطة.",
+      "feat_security_title": "حراسة وأمان 24/7",
+      "feat_security_desc": "حارس مقيم وأنظمة دخول آمنة تضمن لك راحة البال التامة ليلاً ونهاراً.",
+      "feat_wifi_title": "جاهز للعمل والدراسة",
+      "feat_wifi_desc": "تغطية واي فاي سريعة وعالية السرعة في جميع الغرف لإجراء اتصالات العمل والدراسة بسلاسة.",
+      "feat_parking_title": "موقف سيارات خاص ومجاني",
+      "feat_parking_desc": "مواقف سيارات محجوزة داخل محيط آمن لراحتك التامة."
     },
     "rooms": {
-      "page_title": "غرفنا",
-      "title": "اكتشف غرفنا"
+      "title": "الغرف المتاحة والأسعار",
+      "sub": "غرف نظيفة ومنظمة مصممة مع التركيز على النظافة والعمل والراحة.",
+      "night": "لليلة الواحدة",
+      "standard_title": "غرفة عادية",
+      "deluxe_title": "غرفة ديلوكس",
+      "family_title": "جناح عائلي",
+      "popular": "موصى به"
     },
-    "price": {
-      "page_title": "الأسعار",
-      "title": "أسعارنا"
+    "calculator": {
+      "title": "احسب تكلفة إقامتك",
+      "select_room": "اختر نوع الغرفة",
+      "checkin": "تاريخ الوصول",
+      "checkout": "تاريخ المغادرة",
+      "nights": "عدد الليالي",
+      "estimate": "التكلفة التقديرية",
+      "book_calc": "طلب حجز عبر واتساب"
+    },
+    "reviews": {
+      "eyebrow": "آراء وتجارب المقيمين",
+      "title": "ثقة الموظفين والمهنيين والطلبة",
+      "sub": "اكتشف آراء وتجارب الإقامة لضيوفنا في إقامة السفير بسيدي بوزيد.",
+      "google_maps": "قراءة التقييمات الموثقة على خرائط جوجل",
+      "item1_text": "مكان نظيف للغاية، هادئ وآمن في سيدي بوزيد. الواي فاي عالي السرعة كان ممتازاً لإنجاز أعمالي عن بعد.",
+      "item1_author": "سامي بن علي",
+      "item1_role": "مهندس زائر",
+      "item2_text": "موقع ممتاز قريب من الإدارات والمؤسسات. الحارس متعاون جداً والغرفة كانت هادئة ومناسبة جداً للمذاكرة والامتحانات.",
+      "item2_author": "مريم خضر",
+      "item2_role": "طالبة ماجستير",
+      "item3_text": "قيمة ممتازة مقابل السعر. تكييف حديث، حمام خاص نظيف جداً وموقف سيارات آمن لسيارتي.",
+      "item3_author": "يوسف المنصوري",
+      "item3_role": "مستشار أعمال"
+    },
+    "gallery": {
+      "title": "معرض صور الإقامة",
+      "sub": "قم بجولة افتراضية بين غرفنا ومساحات المذاكرة والعمل واستكشف بيئتنا الهادئة والمرحبة.",
+      "img1": "غرفة عادية",
+      "img2": "غرفة معيشة خاصة",
+      "img3": "غرفة بسريرين منفصلين",
+      "img4": "غرفة ديلوكس",
+      "img5": "غرفة عادية مفردة",
+      "img6": "غرفة مريحة مزدوجة",
+      "img7": "مساحة دراسة هادئة",
+      "img8": "مطبخ صغير",
+      "img9": "جناح عائلي"
+    },
+    "amenities": {
+      "title": "الخدمات والمرافق الأساسية",
+      "sub": "كل وسائل الراحة التي تحتاجها لدعم روتينك اليومي والمهني، مع صيانة وتنظيف يومي.",
+      "security": "أمان 24/7",
+      "security_desc": "حارس خاص وكاميرات مراقبة.",
+      "wifi": "إنترنت مجاني عالي السرعة",
+      "wifi_desc": "اتصال موثوق وسريع للعمل والدراسة.",
+      "ac": "تكييف هوائي",
+      "ac_desc": "تكييف هواء بتحكم فردي بارد/ساخن.",
+      "tv": "تلفزيون ذكي",
+      "tv_desc": "شاشة ذكية جاهزة للبث في غرفتك.",
+      "bathroom": "حمام خاص",
+      "bathroom_desc": "حمام خاص نظيف وحديث مع مياه ساخنة.",
+      "cleaning": "تنظيف يومي",
+      "cleaning_desc": "خدمة صيانة وتنظيف وتغيير الأغطية يومياً.",
+      "parking": "موقف سيارات مجاني",
+      "parking_desc": "مواقف سيارات محجوزة وآمنة في الموقع."
+    },
+    "location": {
+      "title": "الموقع في سيدي بوزيد",
+      "sub": "سهل الوصول، يقع في حي هادئ بالقرب من المراكز الإدارية والدراسية.",
+      "address_label": "العنوان",
+      "address_value": "عمارة لويزا، الطابق الأول، التقاسيم، سيدي بوزيد، تونس",
+      "proximity_title": "موقع استراتيجي قريب",
+      "proximity_desc": "موقع مثالي على بعد أقل من 5 دقائق من الإدارات المحلية، الكليات وسائل النقل، مما يجعله مثالياً للوافدين للعمل أو الدراسة."
     },
     "contact": {
-      "page_title": "اتصل بنا",
       "title": "تواصل معنا",
-      "address": "سيدي بوزيد، التقاسيم، مبنى لويزا، الطابق الأول",
-      "form": {
-        "name": "الاسم",
-        "email": "البريد الإلكتروني",
-        "phone": "الهاتف",
-        "message": "الرسالة",
-        "send": "إرسال"
-      }
+      "sub": "لديك استفسار أو ترغب في الحجز مباشرة؟ أرسل لنا رسالة أو اتصل بفريقنا مباشرة.",
+      "name": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "message": "رسالتك",
+      "send": "إرسال الرسالة",
+      "success": "تم إرسال رسالتك بنجاح!",
+      "error": "فشل في إرسال الرسالة. يرجى المحاولة مرة أخرى أو الحجز مباشرة عبر واتساب.",
+      "wa_title": "الحجز المباشر",
+      "wa_desc": "للحصول على تأكيد فوري، اتصل بنا مباشرة عبر واتساب.",
+      "response_time": "الرد عادة خلال 15 دقيقة"
     },
     "footer": {
-      "contact_title": "اتصل بنا",
-      "menu_title": "روابط القائمة",
-      "copyright": "© 2025 جميع الحقوق محفوظة."
+      "desc": "إقامة سكنية موثوقة في سيدي بوزيد توفر غرفاً نظيفة وهادئة وآمنة للمهنيين والموظفين والطلبة.",
+      "copyright": "© 2026 إقامة السفير. جميع الحقوق محفوظة."
     }
   }
 }

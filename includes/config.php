@@ -34,9 +34,13 @@ function loadEnv($filePath) {
 loadEnv(__DIR__ . '/../.env');
 
 // Site Configuration
+// NOTE: Secrets (API keys) must live in the .env file at the project root,
+// never as hardcoded fallbacks here. Non-secret display values (phone,
+// admin recipient list, sender address) keep a safe fallback so the site
+// still renders if .env is briefly missing, but ideally also move to .env.
 define('SITE_NAME', 'Essafir Residence');
 define('WHATSAPP_PHONE', getenv('WHATSAPP_PHONE') ?: '+21650836840');
-define('POSTMARK_API_KEY', getenv('POSTMARK_API_KEY') ?: '9fab92ff-e3cf-466d-b213-5f7baab1a6ce');
+define('POSTMARK_API_KEY', getenv('POSTMARK_API_KEY') ?: '');
 define('ADMIN_EMAILS', getenv('ADMIN_EMAILS') ?: 'hosni.hamdi2009@gmail.com,Essafir.hotel@gmail.com');
 define('FROM_EMAIL', getenv('FROM_EMAIL') ?: 'info@saboura.net');
 
@@ -77,12 +81,31 @@ function t($key) {
     return $value;
 }
 
+// Simple per-session cooldown to stop double-submits and rapid-fire spam
+// on the contact form. Returns true if the action is allowed right now.
+function checkRateLimit($key = 'contact_form', $seconds = 20) {
+    $sessionKey = "rate_limit_$key";
+    $now = time();
+    $last = $_SESSION[$sessionKey] ?? 0;
+
+    if ($now - $last < $seconds) {
+        return false;
+    }
+
+    $_SESSION[$sessionKey] = $now;
+    return true;
+}
+
 // Set language
 if (isset($_GET['lang']) && in_array($_GET['lang'], ['en', 'fr', 'ar'])) {
     $_SESSION['lang'] = $_GET['lang'];
-    // Redirect to remove lang parameter from URL
+    // Redirect to remove lang parameter from URL, preserving section hash if provided
     $redirect = strtok($_SERVER["REQUEST_URI"], '?');
-    header("Location: $redirect");
+    $hash = '';
+    if (isset($_GET['hash']) && preg_match('/^[a-zA-Z0-9_-]+$/', $_GET['hash'])) {
+        $hash = '#' . $_GET['hash'];
+    }
+    header("Location: $redirect$hash");
     exit;
 }
 ?>

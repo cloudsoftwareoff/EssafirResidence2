@@ -1,67 +1,127 @@
 <?php
 $current_page = basename($_SERVER['PHP_SELF'], '.php');
 $lang = getCurrentLanguage();
+$is_rtl = $lang === 'ar';
+
+// Domain and Base URL calculation for canonical & open graph links
+$http_host = $_SERVER['HTTP_HOST'] ?? 'essafir.tn';
+$base_url = 'https://' . $http_host;
+
+// Clean canonical URL without index.php or trailing query parameters
+$request_uri = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
+$clean_path = preg_replace('#/index\.php$#', '/', $request_uri);
+$canonical_url = $base_url . $clean_path;
+
+// Page meta strings
+$meta_title = isset($page_title) ? $page_title : t('site_title');
+$meta_desc = isset($page_description) ? $page_description : t('hero.sub');
+$og_image_url = $base_url . '/images/banner1.webp';
 ?>
 <!DOCTYPE html>
-<html lang="<?php echo $lang; ?>" dir="<?php echo $lang === 'ar' ? 'rtl' : 'ltr'; ?>">
+<html lang="<?php echo $lang; ?>" dir="<?php echo $is_rtl ? 'rtl' : 'ltr'; ?>">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-87X48C4B0X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-87X48C4B0X');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($page_title) ? $page_title . ' - ' . SITE_NAME : t('site_title'); ?></title>
-    <meta name="description" content="<?php echo isset($page_description) ? $page_description : t('home.about_description'); ?>">
-    <meta name="keywords" content="Essafir Residence, accommodation Sidi Bouzid, hotel Sidi Bouzid, rooms Sidi Bouzid, rent rooms Tunisia, premium residence, security, fast wifi">
-    
+    <title><?php echo htmlspecialchars($meta_title, ENT_QUOTES, 'UTF-8'); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($meta_desc, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta name="keywords" content="Essafir Residence, Résidence Essafir, إقامة السفير, Sidi Bouzid, Tunisia, hotel, residence, rooms, accommodation, short stay, rentals, professionals, students, سيدي بوزيد, تونس">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url, ENT_QUOTES, 'UTF-8'); ?>">
+
+    <!-- Multilingual Hreflang Tags -->
+    <link rel="alternate" hreflang="en" href="<?php echo $base_url; ?>/?lang=en" />
+    <link rel="alternate" hreflang="fr" href="<?php echo $base_url; ?>/?lang=fr" />
+    <link rel="alternate" hreflang="ar" href="<?php echo $base_url; ?>/?lang=ar" />
+    <link rel="alternate" hreflang="x-default" href="<?php echo $base_url; ?>/" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?php echo isset($page_title) ? $page_title . ' - ' . SITE_NAME : t('site_title'); ?>">
-    <meta property="og:description" content="<?php echo isset($page_description) ? $page_description : t('home.about_description'); ?>">
-    <meta property="og:image" content="images/logo.png">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="<?php echo isset($page_title) ? $page_title . ' - ' . SITE_NAME : t('site_title'); ?>">
-    <meta property="twitter:description" content="<?php echo isset($page_description) ? $page_description : t('home.about_description'); ?>">
-    
-    <!-- Structured Data (JSON-LD) for Local Business / LodgingBusiness -->
+    <meta property="og:site_name" content="Essafir Residence">
+    <meta property="og:url" content="<?php echo htmlspecialchars($canonical_url, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:title" content="<?php echo htmlspecialchars($meta_title, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:description" content="<?php echo htmlspecialchars($meta_desc, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta property="og:image" content="<?php echo $og_image_url; ?>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Essafir Residence Sidi Bouzid Tunisia">
+    <meta property="og:locale" content="<?php echo $lang === 'ar' ? 'ar_TN' : ($lang === 'fr' ? 'fr_TN' : 'en_US'); ?>">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<?php echo htmlspecialchars($canonical_url, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta name="twitter:title" content="<?php echo htmlspecialchars($meta_title, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta name="twitter:description" content="<?php echo htmlspecialchars($meta_desc, ENT_QUOTES, 'UTF-8'); ?>">
+    <meta name="twitter:image" content="<?php echo $og_image_url; ?>">
+
+    <!-- Structured Data (JSON-LD) for Local Lodging Business -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LodgingBusiness",
-      "name": "<?php echo SITE_NAME; ?>",
-      "description": "<?php echo t('home.about_description'); ?>",
-      "image": "images/logo.png",
-      "telephone": "<?php echo WHATSAPP_PHONE; ?>",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Al-Taqasim, Louiza Building, First Floor",
-        "addressLocality": "Sidi Bouzid",
-        "addressCountry": "TN"
-      },
-      "priceRange": "50 TND - 100 TND",
-      "amenityFeature": [
+      "@graph": [
         {
-          "@type": "LocationFeatureSpecification",
-          "name": "24/7 Security",
-          "value": true
+          "@type": "LodgingBusiness",
+          "@id": "<?php echo $base_url; ?>/#identity",
+          "name": "Essafir Residence",
+          "alternateName": ["Résidence Essafir", "إقامة السفير"],
+          "url": "<?php echo $base_url; ?>/",
+          "logo": "<?php echo $base_url; ?>/images/logo.png",
+          "image": "<?php echo $og_image_url; ?>",
+          "description": "<?php echo addslashes($meta_desc); ?>",
+          "telephone": "+21650836840",
+          "priceRange": "30 - 140 TND",
+          "currenciesAccepted": "TND",
+          "paymentAccepted": "Cash",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Immeuble Louiza, 1er Étage, Al-Taqasim",
+            "addressLocality": "Sidi Bouzid",
+            "addressRegion": "Sidi Bouzid",
+            "postalCode": "9100",
+            "addressCountry": "TN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 35.02388,
+            "longitude": 9.47546
+          },
+          "hasMap": "https://maps.google.com/?cid=16523315610811982763",
+          "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Free High-Speed WiFi", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "24/7 Security & CCTV", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Private Parking", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Daily Cleaning", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Private Bathroom", "value": true }
+          ]
         },
         {
-          "@type": "LocationFeatureSpecification",
-          "name": "Fast WiFi",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Daily Cleaning",
-          "value": true
-        },
-        {
-          "@type": "LocationFeatureSpecification",
-          "name": "Free Parking",
-          "value": true
+          "@type": "WebSite",
+          "@id": "<?php echo $base_url; ?>/#website",
+          "url": "<?php echo $base_url; ?>/",
+          "name": "Essafir Residence",
+          "inLanguage": ["en", "fr", "ar"]
         }
       ]
     }
     </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -70,292 +130,396 @@ $lang = getCurrentLanguage();
             theme: {
                 extend: {
                     colors: {
-                        primary: '#C41E3A',
-                        accent: '#C41E3A',
-                        gold: '#D4AF37',
-                        crimson: '#DC143C',
+                        terra: { DEFAULT: '#C87A53', dark: '#AF5D37', light: '#E8A882' },
+                        olive: { DEFAULT: '#1C2A1E', light: '#2D3E30', mid: '#3D5240' },
+                        sandstone: '#F7F4F0',
+                        charcoal: '#111311',
+                        'clay-muted': '#6E6863',
+                        'sand-border': '#E5DEC9',
+                        'sand-dark': '#CFC9B8',
+                        whatsapp: { DEFAULT: '#25D366', hover: '#1DA851' }
                     },
                     fontFamily: {
-                        display: ['Playfair Display', 'serif'],
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Instrument Serif', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                        arabic: ['Cairo', 'sans-serif'],
+                        'arabic-serif': ['Amiri', 'serif'],
                     },
+                    borderRadius: {
+                        'arch': '160px 160px 0 0',
+                        'arch-sm': '100px 100px 0 0',
+                    },
+                    transitionTimingFunction: {
+                        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    }
                 }
             }
         }
     </script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Favicon -->
     <link rel="icon" href="images/logo.png" type="image/png">
-    
+
     <style>
-        :root {
-            --primary: #C41E3A;
-            --accent: #C41E3A;
-            --gold: #D4AF37;
-            --crimson: #DC143C;
+        /* ── Base & Resets ── */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F7F4F0; }
+        ::-webkit-scrollbar-thumb { background: #CFC9B8; border-radius: 8px; border: 2px solid #F7F4F0; }
+        ::-webkit-scrollbar-thumb:hover { background: #6E6863; }
+
+        html { scroll-behavior: smooth; }
+
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+        [dir="rtl"] body { font-family: 'Cairo', sans-serif; }
+
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Instrument Serif', Georgia, serif;
         }
-        
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+        [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
+        [dir="rtl"] .font-serif {
+            font-family: 'Amiri', serif;
+            font-weight: 700;
         }
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: #FAFAFA;
+
+        /* ── Header scroll state ── */
+        .site-header {
+            transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
         }
-        
-        [dir="rtl"] { 
-            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif; 
+        .site-header.scrolled {
+            background: rgba(255,255,255,0.97) !important;
+            box-shadow: 0 1px 0 #E5DEC9, 0 4px 24px rgba(28,42,30,0.06);
         }
-        
-        .hero-slider { 
-            height: 650px; 
-            position: relative;
-        }
-        
-        @media (max-width: 768px) { 
-            .hero-slider { height: 450px; } 
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Backdrop blur glass effect */
-        .glass-effect {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.92);
-        }
-        
-        /* Refined hover lift */
-        .hover-lift {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .hover-lift:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.15);
-        }
-        
-        /* Elegant shadows */
-        .shadow-refined {
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 
-                        0 1px 2px rgba(0, 0, 0, 0.03);
-        }
-        
-        .shadow-refined-lg {
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 
-                        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        /* Navigation underline animation */
+
+        /* ── Nav underline hover ── */
         .nav-link {
             position: relative;
-            transition: color 0.3s ease;
+            padding-bottom: 4px;
         }
-        
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 1.5px;
+            background: #C87A53;
+            transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
+        [dir="rtl"] .nav-link::after { left: auto; right: 0; }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link.active::after { width: 100%; }
+
+        /* ── Mobile Drawer ── */
+        .mobile-drawer {
+            transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(105%);
         }
-        
-        /* Gradient accents - Red and Gold */
-        .gradient-accent {
-            background: linear-gradient(135deg, #C41E3A 0%, #8B0000 100%);
+        [dir="rtl"] .mobile-drawer { transform: translateX(-105%); }
+        .mobile-drawer.open { transform: translateX(0); }
+
+        .drawer-overlay {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
         }
-        
-        .gradient-gold {
-            background: linear-gradient(135deg, #D4AF37 0%, #C5A028 100%);
+        .drawer-overlay.open { opacity: 1; visibility: visible; }
+
+        /* ── Lang Dropdown ── */
+        .lang-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(6px);
+            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
         }
-        
-        /* Smooth image loading */
-        img {
-            image-rendering: -webkit-optimize-contrast;
+        .lang-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
-        
-        /* Card hover effect */
-        .card-interactive {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* ── Hero Slider ── */
+        .hero-slide {
+            transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
         }
-        
-        .card-interactive:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(196, 30, 58, 0.2);
+        .hero-slide.active { opacity: 1; }
+
+        .slider-dot {
+            transition: all 0.3s ease;
         }
-        
-        /* Button animations */
-        .btn-primary {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .slider-dot.active {
+            width: 24px !important;
+            border-radius: 4px !important;
+            background: white !important;
+        }
+
+        /* ── Section ticker tape ── */
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .ticker-track { animation: ticker 28s linear infinite; }
+        .ticker-track:hover { animation-play-state: paused; }
+
+        /* ── Room card ── */
+        .room-card {
+            transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .room-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(28,42,30,0.1);
+            border-color: #C87A53;
+        }
+        .room-card:hover .room-img { transform: scale(1.04); }
+        .room-img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+
+        /* ── Gallery items ── */
+        .gallery-item { overflow: hidden; }
+        .gallery-img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+        .gallery-item:hover .gallery-img { transform: scale(1.06); }
+        .gallery-overlay {
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        /* ── Amenity cards ── */
+        .amenity-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .amenity-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(28,42,30,0.08);
+            border-color: #C87A53;
+        }
+        .amenity-icon {
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+        .amenity-card:hover .amenity-icon {
+            background: #C87A53;
+            color: white;
+            transform: scale(1.08);
+        }
+
+        /* ── Floating label form ── */
+        .form-field {
             position: relative;
-            overflow: hidden;
         }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.4);
+        .form-field input,
+        .form-field textarea {
+            transition: border-color 0.2s ease, background 0.2s ease;
         }
-        
-        .btn-primary::before {
+        .form-field input:focus,
+        .form-field textarea:focus {
+            border-color: #C87A53;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(200,122,83,0.1);
+        }
+
+        /* ── Contact pill info ── */
+        .contact-pill {
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .contact-pill:hover {
+            border-color: #C87A53;
+            transform: translateX(3px);
+        }
+        [dir="rtl"] .contact-pill:hover { transform: translateX(-3px); }
+
+        /* ── WhatsApp FAB ── */
+        .whatsapp-fab {
+            transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease;
+        }
+        .whatsapp-fab:hover {
+            transform: scale(1.12);
+            box-shadow: 0 8px 30px rgba(37,211,102,0.35);
+        }
+
+        /* ── Pillar card ── */
+        .pillar-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pillar-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(28,42,30,0.06);
+        }
+
+        /* ── Utility ── */
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #C87A53;
+            margin-bottom: 12px;
+        }
+        .section-eyebrow::before {
             content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: currentColor;
         }
-        
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
+        [dir="rtl"] .section-eyebrow { flex-direction: row-reverse; }
+
+        /* Focus rings */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #C87A53;
+            outline-offset: 3px;
+            border-radius: 2px;
         }
-        
-        /* Gold accent elements */
-        .gold-accent {
-            color: var(--gold);
+
+        /* Smooth image loading */
+        img { display: block; }
+
+        /* Calculator range styling */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            opacity: 1;
         }
-        
-        .border-gold {
-            border-color: var(--gold);
-        }
-        
-        /* Red hover states */
-        .hover-red:hover {
-            color: var(--accent);
-        }
-        
-        .hover-bg-red:hover {
-            background-color: rgba(196, 30, 58, 0.05);
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    
-    <header class="glass-effect shadow-refined sticky top-0 z-50 border-b border-gray-100/50">
-        <nav class="container mx-auto px-4 lg:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="index.php" class="block transition-transform hover:scale-105 duration-300">
-                        <img src="images/logo.png" alt="Essafir Residence" class="h-14 md:h-16 w-auto">
-                    </a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden text-gray-700 hover:text-[#C41E3A] focus:outline-none p-2 rounded-lg hover:bg-gray-50 transition-all">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-                
-                <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center space-x-1 <?php echo $lang === 'ar' ? 'space-x-reverse' : ''; ?>">
-                    <a href="index.php" class="nav-link px-4 py-2 text-sm font-medium <?php echo $current_page === 'index' ? 'text-[#C41E3A] active' : 'text-gray-700 hover:text-[#C41E3A]'; ?>">
-                        <?php echo t('nav.home'); ?>
-                    </a>
-                    <a href="about.php" class="nav-link px-4 py-2 text-sm font-medium <?php echo $current_page === 'about' ? 'text-[#C41E3A] active' : 'text-gray-700 hover:text-[#C41E3A]'; ?>">
-                        <?php echo t('nav.about'); ?>
-                    </a>
-                    <a href="room.php" class="nav-link px-4 py-2 text-sm font-medium <?php echo $current_page === 'room' ? 'text-[#C41E3A] active' : 'text-gray-700 hover:text-[#C41E3A]'; ?>">
-                        <?php echo t('nav.rooms'); ?>
-                    </a>
-                    <a href="price.php" class="nav-link px-4 py-2 text-sm font-medium <?php echo $current_page === 'price' ? 'text-[#C41E3A] active' : 'text-gray-700 hover:text-[#C41E3A]'; ?>">
-                        <?php echo t('nav.price'); ?>
-                    </a>
-                    <a href="contact.php" class="nav-link px-4 py-2 text-sm font-medium <?php echo $current_page === 'contact' ? 'text-[#C41E3A] active' : 'text-gray-700 hover:text-[#C41E3A]'; ?>">
-                        <?php echo t('nav.contact'); ?>
-                    </a>
-                    
-                    <!-- Language Dropdown -->
-                    <div class="relative language-dropdown ms-4">
-                        <button id="lang-btn" class="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#C41E3A] hover:bg-gray-50 rounded-lg transition-all focus:outline-none <?php echo $lang === 'ar' ? 'space-x-reverse' : ''; ?>">
-                            <i class="fas fa-globe text-base"></i>
-                            <span class="hidden xl:inline"><?php echo strtoupper($lang); ?></span>
-                            <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <div id="lang-menu" class="hidden absolute end-0 mt-2 w-44 bg-white rounded-xl shadow-refined-lg border border-gray-100/50 py-2 overflow-hidden">
-                            <a href="?lang=en" class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#C41E3A] transition-colors">
-                                <span class="me-3 text-lg">🇬🇧</span>
-                                <span class="font-medium">English</span>
-                            </a>
-                            <a href="?lang=fr" class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#C41E3A] transition-colors">
-                                <span class="me-3 text-lg">🇫🇷</span>
-                                <span class="font-medium">Français</span>
-                            </a>
-                            <a href="?lang=ar" class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-red-50 hover:text-[#C41E3A] transition-colors">
-                                <span class="me-3 text-lg">🇸🇦</span>
-                                <span class="font-medium">عربي</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- CTA Button with Gold Accent -->
-                    <a href="contact.php" class="btn-primary ms-4 gradient-accent text-white px-6 py-2.5 rounded-lg text-sm font-semibold relative z-10 border border-[#D4AF37]/20">
-                        <?php echo t('home.book_button'); ?>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Mobile Navigation -->
-            <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-gray-100/50 pt-4 transition-all duration-300 ease-in-out opacity-0 max-h-0 overflow-hidden">
-                <a href="index.php" class="block py-3 px-3 text-sm font-medium rounded-lg transition-colors <?php echo $current_page === 'index' ? 'text-[#C41E3A] bg-red-50' : 'text-gray-700 hover:bg-gray-50'; ?>">
-                    <?php echo t('nav.home'); ?>
+<body class="bg-white text-charcoal antialiased">
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="site-header sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-sand-border">
+    <div class="container mx-auto px-5 lg:px-8 h-[68px] flex items-center justify-between gap-6">
+
+        <!-- Logo -->
+        <a href="index.php" class="flex items-center gap-2.5 shrink-0" aria-label="Essafir Residence — Home">
+            <img src="images/logo.png" alt="" class="h-8 w-auto" role="presentation">
+            <span class="text-[19px] font-serif text-olive tracking-wide whitespace-nowrap">
+                Essafir <span class="text-terra">Residence</span>
+            </span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center gap-7" aria-label="Primary">
+            <?php
+            $nav_items = [
+                ['href' => 'index.php#home', 'label' => t('nav.home')],
+                ['href' => 'index.php#residence', 'label' => t('nav.residence')],
+                ['href' => 'index.php#rooms', 'label' => t('nav.rooms')],
+                ['href' => 'index.php#gallery', 'label' => $lang === 'ar' ? 'المعرض' : ($lang === 'fr' ? 'Galerie' : 'Gallery')],
+                ['href' => 'index.php#amenities', 'label' => t('nav.amenities')],
+                ['href' => 'index.php#location', 'label' => t('nav.location')],
+                ['href' => 'index.php#contact', 'label' => t('nav.contact')],
+            ];
+            foreach ($nav_items as $item): ?>
+                <a href="<?php echo $item['href']; ?>"
+                   class="nav-link text-[12.5px] font-semibold tracking-wider uppercase text-clay-muted hover:text-olive transition-colors duration-200">
+                    <?php echo $item['label']; ?>
                 </a>
-                <a href="about.php" class="block py-3 px-3 text-sm font-medium rounded-lg transition-colors <?php echo $current_page === 'about' ? 'text-[#C41E3A] bg-red-50' : 'text-gray-700 hover:bg-gray-50'; ?>">
-                    <?php echo t('nav.about'); ?>
-                </a>
-                <a href="room.php" class="block py-3 px-3 text-sm font-medium rounded-lg transition-colors <?php echo $current_page === 'room' ? 'text-[#C41E3A] bg-red-50' : 'text-gray-700 hover:bg-gray-50'; ?>">
-                    <?php echo t('nav.rooms'); ?>
-                </a>
-                <a href="price.php" class="block py-3 px-3 text-sm font-medium rounded-lg transition-colors <?php echo $current_page === 'price' ? 'text-[#C41E3A] bg-red-50' : 'text-gray-700 hover:bg-gray-50'; ?>">
-                    <?php echo t('nav.price'); ?>
-                </a>
-                <a href="contact.php" class="block py-3 px-3 text-sm font-medium rounded-lg transition-colors <?php echo $current_page === 'contact' ? 'text-[#C41E3A] bg-red-50' : 'text-gray-700 hover:bg-gray-50'; ?>">
-                    <?php echo t('nav.contact'); ?>
-                </a>
-                <div class="mt-4 pt-4 border-t border-gray-100/50">
-                    <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 px-3"><?php echo t('nav.language'); ?></p>
-                    <a href="?lang=en" class="flex items-center py-2.5 px-3 rounded-lg hover:bg-gray-50 text-gray-700 transition-colors">
-                        <span class="me-3 text-lg">🇬🇧</span>
-                        <span class="font-medium">English</span>
-                    </a>
-                    <a href="?lang=fr" class="flex items-center py-2.5 px-3 rounded-lg hover:bg-gray-50 text-gray-700 transition-colors">
-                        <span class="me-3 text-lg">🇫🇷</span>
-                        <span class="font-medium">Français</span>
-                    </a>
-                    <a href="?lang=ar" class="flex items-center py-2.5 px-3 rounded-lg hover:bg-gray-50 text-gray-700 transition-colors">
-                        <span class="me-3 text-lg">🇸🇦</span>
-                        <span class="font-medium">عربي</span>
-                    </a>
-                </div>
-                <a href="contact.php" class="btn-primary mt-4 block w-full text-center gradient-accent text-white px-6 py-3 rounded-lg font-semibold relative border border-[#D4AF37]/20">
-                    <?php echo t('home.book_button'); ?>
-                </a>
-            </div>
+            <?php endforeach; ?>
         </nav>
-    </header>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3 shrink-0">
+
+            <!-- Language picker -->
+            <div class="relative">
+                <button id="lang-btn"
+                    class="flex items-center gap-1.5 px-3 py-2 text-[11px] font-bold tracking-wider uppercase text-clay-muted border border-sand-border hover:border-terra hover:text-terra rounded-[3px] transition-all duration-200 bg-transparent cursor-pointer"
+                    aria-haspopup="true" aria-expanded="false" aria-label="<?php echo $lang === 'ar' ? 'اختر اللغة' : 'Select Language'; ?>">
+                    <i class="fa-solid fa-globe text-[10px]"></i>
+                    <span><?php echo strtoupper($lang); ?></span>
+                    <i class="fa-solid fa-chevron-down text-[7px]"></i>
+                </button>
+                <div id="lang-menu"
+                    class="lang-dropdown absolute <?php echo $is_rtl ? 'left-0' : 'right-0'; ?> top-[calc(100%+8px)] w-36 bg-white border border-sand-border shadow-lg rounded-[4px] overflow-hidden z-50 flex flex-col">
+                    <?php
+                    $langs = ['en' => '🇬🇧 English', 'fr' => '🇫🇷 Français', 'ar' => '🇸🇦 عربي'];
+                    foreach ($langs as $code => $label): ?>
+                        <a href="?lang=<?php echo $code; ?>"
+                           class="px-4 py-2.5 text-[12.5px] font-medium text-clay-muted hover:bg-sandstone hover:text-terra transition-colors <?php echo $lang === $code ? 'bg-sandstone text-olive font-semibold' : ''; ?>">
+                            <?php echo $label; ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <!-- WhatsApp CTA — desktop -->
+            <a href="https://wa.me/<?php echo str_replace('+', '', WHATSAPP_PHONE); ?>?text=<?php echo urlencode('Hello, I am interested in booking a room at Essafir Residence Sidi Bouzid.'); ?>"
+               target="_blank" rel="noopener"
+               class="hidden lg:inline-flex items-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-wider bg-olive text-white rounded-[3px] hover:bg-olive-mid transition-all duration-200">
+                <i class="fa-brands fa-whatsapp text-[13px] text-whatsapp"></i>
+                <?php echo t('hero.cta_whatsapp'); ?>
+            </a>
+
+            <!-- Hamburger -->
+            <button id="menu-btn"
+                class="lg:hidden flex items-center justify-center w-9 h-9 text-olive rounded-[3px] border border-sand-border hover:border-terra transition-colors"
+                aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                <i class="fa-solid fa-bars text-sm"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ═══════════════════ MOBILE DRAWER ═══════════════════ -->
+<div id="nav-overlay"
+    class="drawer-overlay fixed inset-0 bg-charcoal/50 backdrop-blur-[2px] z-[110]"
+    aria-hidden="true"></div>
+
+<aside id="mobile-nav"
+    class="mobile-drawer fixed top-0 bottom-0 <?php echo $is_rtl ? 'left-0' : 'right-0'; ?> w-[300px] bg-white z-[120] shadow-2xl flex flex-col"
+    aria-label="Mobile navigation">
+
+    <!-- Drawer header -->
+    <div class="flex items-center justify-between px-7 py-5 border-b border-sand-border">
+        <a href="index.php" class="font-serif text-[17px] text-olive">
+            Essafir <span class="text-terra">Residence</span>
+        </a>
+        <button id="nav-close"
+            class="w-8 h-8 flex items-center justify-center text-clay-muted hover:text-olive border border-sand-border rounded-[3px] transition-colors bg-transparent cursor-pointer"
+            aria-label="Close menu">
+            <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+    </div>
+
+    <!-- Drawer nav links -->
+    <nav class="flex flex-col px-7 py-6 gap-1" aria-label="Mobile navigation">
+        <?php foreach ($nav_items as $item): ?>
+            <a href="<?php echo $item['href']; ?>"
+               class="drawer-item flex items-center gap-3 px-3 py-3 text-[15px] font-medium text-clay-muted hover:text-olive hover:bg-sandstone rounded-[4px] transition-all duration-200">
+                <?php echo $item['label']; ?>
+            </a>
+        <?php endforeach; ?>
+    </nav>
+
+    <!-- Drawer footer -->
+    <div class="mt-auto px-7 py-6 border-t border-sand-border flex flex-col gap-5">
+        <a href="https://wa.me/<?php echo str_replace('+', '', WHATSAPP_PHONE); ?>?text=<?php echo urlencode('Hello, I am interested in booking a room at Essafir Residence.'); ?>"
+           target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 px-5 py-3 text-[12px] font-bold uppercase tracking-wider bg-olive text-white rounded-[3px] hover:bg-olive-mid transition-colors">
+            <i class="fa-brands fa-whatsapp text-whatsapp"></i>
+            <?php echo t('hero.cta_whatsapp'); ?>
+        </a>
+
+        <div>
+            <p class="text-[10px] font-bold uppercase tracking-widest text-clay-muted mb-2.5">
+                <?php echo $is_rtl ? 'اللغة' : ($lang === 'fr' ? 'Langue' : 'Language'); ?>
+            </p>
+            <div class="flex gap-1.5">
+                <?php foreach (['en' => 'EN', 'fr' => 'FR', 'ar' => 'عر'] as $code => $label): ?>
+                    <a href="?lang=<?php echo $code; ?>"
+                       class="flex-1 text-center py-2 text-[11px] font-bold border rounded-[3px] transition-all
+                              <?php echo $lang === $code
+                                  ? 'bg-olive text-white border-olive'
+                                  : 'border-sand-border text-clay-muted hover:border-terra hover:text-terra'; ?>">
+                        <?php echo $label; ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</aside>
