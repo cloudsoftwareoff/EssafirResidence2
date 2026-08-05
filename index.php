@@ -83,7 +83,7 @@ $hero_banners = [
     'images/banner1.webp',
     'images/banner_2.webp',
     'images/banner_3.webp',
-    'images/banner33.jpeg',
+    'images/banner33.webp',
 ];
 ?>
 

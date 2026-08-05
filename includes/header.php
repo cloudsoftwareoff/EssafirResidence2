@@ -115,51 +115,35 @@ $og_image_url = $base_url . '/images/banner1.webp';
     }
     </script>
 
-    <!-- Fonts -->
+    <!-- Critical Resource Preloads -->
+    <link rel="preload" href="images/banner1.webp" as="image" type="image/webp" fetchpriority="high">
+
+    <!-- Fonts & CDN Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Asynchronous Non-blocking Google Fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        terra: { DEFAULT: '#B31E2B', dark: '#7A0F18', light: '#D9A79A' },
-                        olive: { DEFAULT: '#4A0E14', light: '#6B1620', mid: '#7A1B22' },
-                        sandstone: '#FBF6EE',
-                        charcoal: '#241512',
-                        'clay-muted': '#6E524A',
-                        'sand-border': '#EAD9C3',
-                        'sand-dark': '#D8B98F',
-                        brass: { DEFAULT: '#B8935A', light: '#D9BE8F' },
-                        whatsapp: { DEFAULT: '#25D366', hover: '#1DA851' }
-                    },
-                    fontFamily: {
-                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
-                        sans: ['Jost', 'system-ui', 'sans-serif'],
-                        arabic: ['Cairo', 'sans-serif'],
-                        'arabic-serif': ['Amiri', 'serif'],
-                    },
-                    borderRadius: {
-                        'arch': '160px 160px 0 0',
-                        'arch-sm': '100px 100px 0 0',
-                    },
-                    transitionTimingFunction: {
-                        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Asynchronous Non-blocking Font Awesome -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
+
+    <!-- Production Tailwind CSS Build -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="images/logo.png" type="image/png">
 
     <style>
+        /* ── Webfont display swap ── */
+        @font-face { font-family: 'Font Awesome 6 Free'; font-display: swap; }
+        @font-face { font-family: 'Font Awesome 6 Brands'; font-display: swap; }
+
         /* ── Base & Resets ── */
         *, *::before, *::after { box-sizing: border-box; }
 

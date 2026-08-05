@@ -1,0 +1,13 @@
+{
+  "name": "essafir-residence",
+  "version": "1.0.0",
+  "description": "Essafir Residence Website",
+  "main": "index.php",
+  "scripts": {
+    "build:css": "npx tailwindcss -i assets/css/src.css -o assets/css/style.css --minify",
+    "watch:css": "npx tailwindcss -i assets/css/src.css -o assets/css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
