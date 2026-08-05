@@ -12,7 +12,7 @@ $rooms = [
         'title' => t('rooms.standard_title'),
         'price' => '30',
         'price_note' => $lang === 'ar' ? 'حسب التوفر' : ($lang === 'fr' ? 'sous réserve de disponibilité' : 'subject to availability'),
-        'image' => 'images/one_bed.jpeg.webp',
+        'image' => 'images/one_bed.jpeg',
         'features' => [
             $lang === 'ar' ? 'سرير فردي أو مزدوج' : ($lang === 'fr' ? 'Lit simple ou double' : 'Single or Double Bed'),
             t('amenities.wifi'),
