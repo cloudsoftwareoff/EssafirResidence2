@@ -118,7 +118,7 @@ $og_image_url = $base_url . '/images/banner1.webp';
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -130,18 +130,19 @@ $og_image_url = $base_url . '/images/banner1.webp';
             theme: {
                 extend: {
                     colors: {
-                        terra: { DEFAULT: '#C87A53', dark: '#AF5D37', light: '#E8A882' },
-                        olive: { DEFAULT: '#1C2A1E', light: '#2D3E30', mid: '#3D5240' },
-                        sandstone: '#F7F4F0',
-                        charcoal: '#111311',
-                        'clay-muted': '#6E6863',
-                        'sand-border': '#E5DEC9',
-                        'sand-dark': '#CFC9B8',
+                        terra: { DEFAULT: '#B31E2B', dark: '#7A0F18', light: '#D9A79A' },
+                        olive: { DEFAULT: '#4A0E14', light: '#6B1620', mid: '#7A1B22' },
+                        sandstone: '#FBF6EE',
+                        charcoal: '#241512',
+                        'clay-muted': '#6E524A',
+                        'sand-border': '#EAD9C3',
+                        'sand-dark': '#D8B98F',
+                        brass: { DEFAULT: '#B8935A', light: '#D9BE8F' },
                         whatsapp: { DEFAULT: '#25D366', hover: '#1DA851' }
                     },
                     fontFamily: {
-                        serif: ['Instrument Serif', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Jost', 'system-ui', 'sans-serif'],
                         arabic: ['Cairo', 'sans-serif'],
                         'arabic-serif': ['Amiri', 'serif'],
                     },
@@ -163,17 +164,17 @@ $og_image_url = $base_url . '/images/banner1.webp';
         *, *::before, *::after { box-sizing: border-box; }
 
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F7F4F0; }
-        ::-webkit-scrollbar-thumb { background: #CFC9B8; border-radius: 8px; border: 2px solid #F7F4F0; }
-        ::-webkit-scrollbar-thumb:hover { background: #6E6863; }
+        ::-webkit-scrollbar-track { background: #FBF6EE; }
+        ::-webkit-scrollbar-thumb { background: #D8B98F; border-radius: 8px; border: 2px solid #FBF6EE; }
+        ::-webkit-scrollbar-thumb:hover { background: #6E524A; }
 
         html { scroll-behavior: smooth; }
 
-        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+        body { font-family: 'Jost', system-ui, sans-serif; }
         [dir="rtl"] body { font-family: 'Cairo', sans-serif; }
 
         h1, h2, h3, h4, h5, h6, .font-serif {
-            font-family: 'Instrument Serif', Georgia, serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
         }
         [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
         [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
@@ -187,8 +188,8 @@ $og_image_url = $base_url . '/images/banner1.webp';
             transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
         }
         .site-header.scrolled {
-            background: rgba(255,255,255,0.97) !important;
-            box-shadow: 0 1px 0 #E5DEC9, 0 4px 24px rgba(28,42,30,0.06);
+            background: rgba(251,246,238,0.97) !important;
+            box-shadow: 0 1px 0 #EAD9C3, 0 4px 24px rgba(74,14,20,0.06);
         }
 
         /* ── Nav underline hover ── */
@@ -203,7 +204,7 @@ $og_image_url = $base_url . '/images/banner1.webp';
             left: 0;
             width: 0;
             height: 1.5px;
-            background: #C87A53;
+            background: #B31E2B;
             transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         [dir="rtl"] .nav-link::after { left: auto; right: 0; }
@@ -268,8 +269,8 @@ $og_image_url = $base_url . '/images/banner1.webp';
         }
         .room-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(28,42,30,0.1);
-            border-color: #C87A53;
+            box-shadow: 0 12px 40px rgba(74,14,20,0.1);
+            border-color: #B31E2B;
         }
         .room-card:hover .room-img { transform: scale(1.04); }
         .room-img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
@@ -290,14 +291,14 @@ $og_image_url = $base_url . '/images/banner1.webp';
         }
         .amenity-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 28px rgba(28,42,30,0.08);
-            border-color: #C87A53;
+            box-shadow: 0 8px 28px rgba(74,14,20,0.08);
+            border-color: #B31E2B;
         }
         .amenity-icon {
             transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
         }
         .amenity-card:hover .amenity-icon {
-            background: #C87A53;
+            background: #B31E2B;
             color: white;
             transform: scale(1.08);
         }
@@ -312,10 +313,10 @@ $og_image_url = $base_url . '/images/banner1.webp';
         }
         .form-field input:focus,
         .form-field textarea:focus {
-            border-color: #C87A53;
+            border-color: #B31E2B;
             background: white;
             outline: none;
-            box-shadow: 0 0 0 3px rgba(200,122,83,0.1);
+            box-shadow: 0 0 0 3px rgba(179,30,43,0.1);
         }
 
         /* ── Contact pill info ── */
@@ -323,7 +324,7 @@ $og_image_url = $base_url . '/images/banner1.webp';
             transition: border-color 0.2s ease, transform 0.2s ease;
         }
         .contact-pill:hover {
-            border-color: #C87A53;
+            border-color: #B31E2B;
             transform: translateX(3px);
         }
         [dir="rtl"] .contact-pill:hover { transform: translateX(-3px); }
@@ -343,7 +344,7 @@ $og_image_url = $base_url . '/images/banner1.webp';
         }
         .pillar-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(28,42,30,0.06);
+            box-shadow: 0 8px 28px rgba(74,14,20,0.06);
         }
 
         /* ── Utility ── */
@@ -355,21 +356,25 @@ $og_image_url = $base_url . '/images/banner1.webp';
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: #C87A53;
+            color: #B31E2B;
             margin-bottom: 12px;
         }
         .section-eyebrow::before {
             content: '';
             display: block;
-            width: 24px;
-            height: 1.5px;
-            background: currentColor;
+            width: 34px;
+            height: 10px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 10'%3E%3Cpath d='M0 5 H21' stroke='%23B8935A' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='26' cy='5' r='2.2' fill='none' stroke='%23B8935A' stroke-width='1.2'/%3E%3Cpath d='M30.5 5c.6-1.4 1.6-1.4 2.2 0-.6 1.4-1.6 1.4-2.2 0z' fill='%23B8935A'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left center;
+            flex-shrink: 0;
         }
         [dir="rtl"] .section-eyebrow { flex-direction: row-reverse; }
+        [dir="rtl"] .section-eyebrow::before { transform: scaleX(-1); }
 
         /* Focus rings */
         a:focus-visible, button:focus-visible {
-            outline: 2px solid #C87A53;
+            outline: 2px solid #B31E2B;
             outline-offset: 3px;
             border-radius: 2px;
         }

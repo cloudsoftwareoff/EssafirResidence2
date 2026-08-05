@@ -95,7 +95,7 @@ $hero_banners = [
 <section id="home" class="relative bg-sandstone overflow-hidden min-h-[calc(100vh-68px)]">
 
     <!-- Subtle background texture line -->
-    <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle at 20% 80%, rgba(200,122,83,0.05) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(28,42,30,0.04) 0%, transparent 50%);"></div>
+    <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle at 20% 80%, rgba(179,30,43,0.05) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(74,14,20,0.04) 0%, transparent 50%);"></div>
 
     <div class="container mx-auto px-5 lg:px-8 flex flex-col lg:flex-row items-center min-h-[calc(100vh-68px)] gap-10 lg:gap-0">
 
@@ -147,7 +147,7 @@ $hero_banners = [
                 <div class="flex flex-wrap items-center gap-3">
                     <a href="https://wa.me/<?php echo str_replace('+', '', WHATSAPP_PHONE); ?>?text=<?php echo urlencode('Hello, I am interested in reserving a room at Essafir Residence.'); ?>"
                        target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2.5 px-7 py-3.5 text-[12px] font-bold uppercase tracking-wider bg-olive text-white rounded-[3px] hover:bg-olive-mid transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(28,42,30,0.25)]">
+                       class="inline-flex items-center gap-2.5 px-7 py-3.5 text-[12px] font-bold uppercase tracking-wider bg-olive text-white rounded-[3px] hover:bg-olive-mid transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(74,14,20,0.25)]">
                         <i class="fa-brands fa-whatsapp text-whatsapp text-[15px]"></i>
                         <?php echo t('hero.cta_whatsapp'); ?>
                     </a>
@@ -167,6 +167,21 @@ $hero_banners = [
         <!-- Right: Arch image slider -->
         <div class="flex-1 flex items-center justify-center py-10 lg:py-16 order-1 lg:order-2">
             <div class="relative">
+                <!-- Brass flourish ornaments, echoing the logo's scrollwork -->
+                <svg class="absolute -top-6 <?php echo $is_rtl ? '-right-6' : '-left-6'; ?> w-16 h-16 pointer-events-none z-10" viewBox="0 0 64 64" aria-hidden="true">
+                    <g fill="none" stroke="#B8935A" stroke-width="1.6">
+                        <path d="M6 34 C 6 18, 18 6, 34 6"/>
+                        <path d="M14 34 C 14 22, 22 14, 34 14"/>
+                        <circle cx="34" cy="6" r="2.4" fill="#B8935A"/>
+                    </g>
+                </svg>
+                <svg class="absolute -bottom-6 <?php echo $is_rtl ? '-left-6' : '-right-6'; ?> w-16 h-16 pointer-events-none z-10" viewBox="0 0 64 64" aria-hidden="true" style="transform: rotate(180deg);">
+                    <g fill="none" stroke="#B8935A" stroke-width="1.6">
+                        <path d="M6 34 C 6 18, 18 6, 34 6"/>
+                        <path d="M14 34 C 14 22, 22 14, 34 14"/>
+                        <circle cx="34" cy="6" r="2.4" fill="#B8935A"/>
+                    </g>
+                </svg>
                 <div class="w-[320px] sm:w-[380px] lg:w-[420px] aspect-[3/4] rounded-arch overflow-hidden shadow-2xl shadow-olive/20 relative bg-olive">
                     <?php foreach ($hero_banners as $i => $banner): ?>
                         <div class="hero-slide absolute inset-0 <?php echo $i === 0 ? 'active' : ''; ?>">
@@ -427,7 +442,7 @@ $hero_banners = [
                            target="_blank" rel="noopener"
                            class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-[11px] font-bold uppercase tracking-wider rounded-[4px] transition-all duration-200
                                   <?php echo $room['featured']
-                                      ? 'bg-terra text-white hover:bg-terra-dark hover:shadow-[0_4px_16px_rgba(200,122,83,0.3)]'
+                                      ? 'bg-terra text-white hover:bg-terra-dark hover:shadow-[0_4px_16px_rgba(179,30,43,0.3)]'
                                       : 'bg-sandstone border border-sand-border text-olive hover:border-olive hover:bg-white'; ?>">
                             <i class="fa-brands fa-whatsapp <?php echo $room['featured'] ? 'text-white' : 'text-whatsapp'; ?>"></i>
                             <?php echo t('hero.cta_whatsapp'); ?>
@@ -705,7 +720,7 @@ $hero_banners = [
                     </div>
 
                     <button type="submit" id="submit-btn"
-                            class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[11px] font-bold uppercase tracking-wider bg-olive text-white rounded-[4px] hover:bg-olive-mid transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(28,42,30,0.2)]">
+                            class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[11px] font-bold uppercase tracking-wider bg-olive text-white rounded-[4px] hover:bg-olive-mid transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(74,14,20,0.2)]">
                         <i class="fa-solid fa-paper-plane text-[10px]"></i>
                         <?php echo t('contact.send'); ?>
                     </button>
