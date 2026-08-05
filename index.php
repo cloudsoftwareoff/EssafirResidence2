@@ -12,7 +12,7 @@ $rooms = [
         'title' => t('rooms.standard_title'),
         'price' => '30',
         'price_note' => $lang === 'ar' ? 'حسب التوفر' : ($lang === 'fr' ? 'sous réserve de disponibilité' : 'subject to availability'),
-        'image' => 'images/gallery_5.webp',
+        'image' => 'images/one_bed.jpeg.webp',
         'features' => [
             $lang === 'ar' ? 'سرير فردي أو مزدوج' : ($lang === 'fr' ? 'Lit simple ou double' : 'Single or Double Bed'),
             t('amenities.wifi'),
@@ -363,7 +363,7 @@ $hero_banners = [
         </div>
 
         <div class="text-center">
-            <a href="https://maps.google.com/?cid=16523315610811982763" target="_blank" rel="noopener"
+            <a href="https://maps.app.goo.gl/RHHgLRhDdyErYBFQA" target="_blank" rel="noopener"
                class="inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-olive hover:text-terra transition-colors">
                 <i class="fa-brands fa-google text-terra"></i>
                 <?php echo t('reviews.google_maps'); ?>

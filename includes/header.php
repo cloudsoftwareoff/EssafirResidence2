@@ -94,7 +94,7 @@ $og_image_url = $base_url . '/images/banner1.webp';
             "latitude": 35.02388,
             "longitude": 9.47546
           },
-          "hasMap": "https://maps.google.com/?cid=16523315610811982763",
+          "hasMap": "https://maps.app.goo.gl/RHHgLRhDdyErYBFQA",
           "amenityFeature": [
             { "@type": "LocationFeatureSpecification", "name": "Free High-Speed WiFi", "value": true },
             { "@type": "LocationFeatureSpecification", "name": "24/7 Security & CCTV", "value": true },
