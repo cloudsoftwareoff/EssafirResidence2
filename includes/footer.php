@@ -48,7 +48,7 @@
                         ['href' => 'index.php#rooms', 'label' => t('nav.rooms')],
                         ['href' => 'index.php#amenities', 'label' => t('nav.amenities')],
                         ['href' => 'index.php#location', 'label' => t('nav.location')],
-                        ['href' => 'sidi_bouzid.pdf', 'label' => t('ebook.title') . ' (PDF)', 'target' => '_blank'],
+                        ['href' => 'sidi_bouzid_2.pdf', 'label' => t('ebook.title') . ' (PDF)', 'target' => '_blank'],
                         ['href' => 'index.php#contact', 'label' => t('nav.contact')],
                     ];
                     foreach ($footer_links as $link): ?>

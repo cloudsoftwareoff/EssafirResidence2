@@ -102,12 +102,19 @@ $hero_banners = [
         <!-- Left: Typography -->
         <div class="flex-1 flex flex-col justify-center py-14 lg:py-0 <?php echo $is_rtl ? 'lg:pl-12' : 'lg:pr-12'; ?> z-10 order-2 lg:order-1">
 
-            <!-- Location chip -->
-            <div class="inline-flex items-center gap-2 mb-5 self-start">
-                <span class="w-5 h-px bg-terra"></span>
-                <span class="text-[11px] font-bold tracking-[0.18em] uppercase text-terra">
-                    <?php echo $lang === 'ar' ? 'سيدي بوزيد، تونس' : ($lang === 'fr' ? 'Sidi Bouzid, Tunisie' : 'Sidi Bouzid, Tunisia'); ?>
-                </span>
+            <!-- Location chip & City Guide Badge -->
+            <div class="flex flex-wrap items-center gap-3 mb-5 self-start">
+                <div class="inline-flex items-center gap-2">
+                    <span class="w-5 h-px bg-terra"></span>
+                    <span class="text-[11px] font-bold tracking-[0.18em] uppercase text-terra">
+                        <?php echo $lang === 'ar' ? 'سيدي بوزيد، تونس' : ($lang === 'fr' ? 'Sidi Bouzid, Tunisie' : 'Sidi Bouzid, Tunisia'); ?>
+                    </span>
+                </div>
+                <a href="sidi_bouzid_2.pdf" target="_blank" rel="noopener" download
+                   class="inline-flex items-center gap-1.5 px-3 py-1 text-[10.5px] font-bold uppercase tracking-wider bg-terra text-white rounded-full hover:bg-terra-dark transition-all shadow-sm">
+                    <i class="fa-solid fa-file-pdf text-[10px]"></i>
+                    <span><?php echo $lang === 'ar' ? 'دليل المدينة (PDF)' : ($lang === 'fr' ? 'Guide PDF' : 'Free City Guide (PDF)'); ?></span>
+                </a>
             </div>
 
             <h1 class="text-[48px] lg:text-[64px] xl:text-[72px] font-serif text-olive leading-[1.05] tracking-[-0.01em] mb-6 max-w-[560px]">
@@ -654,7 +661,7 @@ $hero_banners = [
                             </div>
                         </div>
                         <div class="flex items-center gap-2 shrink-0 w-full sm:w-auto">
-                            <a href="sidi_bouzid.pdf" target="_blank" rel="noopener" download
+                            <a href="sidi_bouzid_2.pdf" target="_blank" rel="noopener" download
                                class="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-wider bg-terra text-white rounded-[4px] hover:bg-terra-dark transition-colors w-full sm:w-auto">
                                 <i class="fa-solid fa-download text-xs"></i>
                                 <?php echo t('ebook.download'); ?>
@@ -674,6 +681,80 @@ $hero_banners = [
                     class="border-0 w-full h-full">
                 </iframe>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FEATURED CITY GUIDE SECTION (EBOOK)
+══════════════════════════════════════════════════ -->
+<section id="guide" class="py-20 bg-olive text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-terra/20 via-transparent to-transparent opacity-60"></div>
+    <div class="container mx-auto px-5 lg:px-8 relative z-10">
+        <div class="bg-white/5 border border-white/15 rounded-[16px] p-8 lg:p-12 backdrop-blur-sm flex flex-col lg:flex-row items-center justify-between gap-10">
+            
+            <!-- Left Info -->
+            <div class="max-w-[580px]">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-terra/20 border border-terra/30 text-terra-light text-[11px] font-bold uppercase tracking-widest rounded-full mb-4">
+                    <i class="fa-solid fa-book-open text-terra"></i>
+                    <?php echo $lang === 'ar' ? 'دليل المدينة المجاني' : ($lang === 'fr' ? 'Guide Officiel Gratuit' : 'Free Essential City Guide'); ?>
+                </div>
+
+                <h2 class="text-[34px] lg:text-[46px] font-serif leading-[1.15] mb-4 text-white">
+                    <?php echo t('ebook.title'); ?>
+                </h2>
+
+                <p class="text-[15px] text-white/80 leading-relaxed mb-6 font-light">
+                    <?php echo t('ebook.sub'); ?>
+                </p>
+
+                <!-- Highlights grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                    <div class="flex items-center gap-2.5 text-[13px] text-white/90">
+                        <i class="fa-solid fa-circle-check text-terra"></i>
+                        <span><?php echo $lang === 'ar' ? 'المراكز الإدارية والدراسية' : ($lang === 'fr' ? 'Centres administratifs & universités' : 'Administrative & Study Hubs'); ?></span>
+                    </div>
+                    <div class="flex items-center gap-2.5 text-[13px] text-white/90">
+                        <i class="fa-solid fa-circle-check text-terra"></i>
+                        <span><?php echo $lang === 'ar' ? 'وسائل النقل والمواقف' : ($lang === 'fr' ? 'Transports & Taxis locaux' : 'Local Transit & Parking'); ?></span>
+                    </div>
+                    <div class="flex items-center gap-2.5 text-[13px] text-white/90">
+                        <i class="fa-solid fa-circle-check text-terra"></i>
+                        <span><?php echo $lang === 'ar' ? 'أفضل الأماكن والمطاعم' : ($lang === 'fr' ? 'Restaurants & Cafés recommandés' : 'Recommended Dining & Cafes'); ?></span>
+                    </div>
+                    <div class="flex items-center gap-2.5 text-[13px] text-white/90">
+                        <i class="fa-solid fa-circle-check text-terra"></i>
+                        <span><?php echo $lang === 'ar' ? 'أرقام الطوارئ والخدمات' : ($lang === 'fr' ? 'Numéros d\'urgence & services' : 'Emergency Contacts & Services'); ?></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Box CTA -->
+            <div class="w-full lg:w-auto shrink-0 flex flex-col items-center bg-white/10 border border-white/20 p-6 lg:p-8 rounded-[12px] text-center min-w-[280px]">
+                <div class="w-16 h-16 rounded-full bg-terra flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-terra/40">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+                <div class="text-[12px] uppercase font-bold tracking-widest text-white/60 mb-1">
+                    PDF EBOOK • 6.7 MB
+                </div>
+                <div class="text-[18px] font-serif font-bold text-white mb-5">
+                    Sidi Bouzid Guide
+                </div>
+                
+                <div class="flex flex-col gap-3 w-full">
+                    <a href="sidi_bouzid_2.pdf" target="_blank" rel="noopener" download
+                       class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-terra hover:bg-terra-dark text-white font-bold text-[12px] uppercase tracking-wider rounded-[4px] transition-all shadow-md">
+                        <i class="fa-solid fa-download"></i>
+                        <?php echo t('ebook.download'); ?>
+                    </a>
+                    <a href="sidi_bouzid_2.pdf" target="_blank" rel="noopener"
+                       class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold text-[12px] uppercase tracking-wider rounded-[4px] border border-white/20 transition-all">
+                        <i class="fa-solid fa-eye"></i>
+                        <?php echo t('ebook.preview'); ?>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

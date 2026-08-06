@@ -7,6 +7,7 @@
       "rooms": "Rooms",
       "amenities": "Amenities",
       "location": "Location",
+      "guide": "City Guide (PDF)",
       "contact": "Contact"
     },
     "hero": {
@@ -130,6 +131,7 @@
       "rooms": "Chambres",
       "amenities": "Équipements",
       "location": "Localisation",
+      "guide": "Guide PDF",
       "contact": "Contact"
     },
     "hero": {
@@ -253,6 +255,7 @@
       "rooms": "الغرف والأسعار",
       "amenities": "الخدمات",
       "location": "الموقع",
+      "guide": "دليل المدينة (PDF)",
       "contact": "الاتصال"
     },
     "hero": {
