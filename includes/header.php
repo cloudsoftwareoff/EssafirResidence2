@@ -139,7 +139,7 @@ $og_image_url = $base_url . '/images/banner1.webp';
     </noscript>
 
     <!-- Production Tailwind CSS Build -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=<?php echo @filemtime('assets/css/style.css'); ?>">
     <link rel="icon" href="images/logo.png" type="image/png">
 
     <style>
