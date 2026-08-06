@@ -116,19 +116,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── 3. STICKY HEADER SCROLL STATE + ANCHOR OFFSET ──
     const siteHeader = document.querySelector('.site-header');
     const mobileStickyBar = document.getElementById('mobile-sticky-bar');
+    const whatsappFab = document.querySelector('.whatsapp-fab');
     const headerHeight = () => (siteHeader ? siteHeader.offsetHeight : 0);
 
     if (siteHeader) {
         let ticking = false;
         const updateHeaderState = () => {
             const scrollY = window.scrollY;
+            const isMobile = window.innerWidth < 640;
             siteHeader.classList.toggle('scrolled', scrollY > 8);
 
             // Toggle mobile sticky booking bar after scrolling past hero
             if (mobileStickyBar) {
-                const showStickyBar = scrollY > 450;
+                const showStickyBar = scrollY > 450 && isMobile;
                 mobileStickyBar.classList.toggle('translate-y-full', !showStickyBar);
                 mobileStickyBar.classList.toggle('translate-y-0', showStickyBar);
+
+                // Elevate WhatsApp FAB and Back-to-Top button above sticky bar on mobile
+                const backToTopBtn = document.getElementById('back-to-top');
+                if (whatsappFab) {
+                    whatsappFab.style.bottom = showStickyBar ? '76px' : '';
+                }
+                if (backToTopBtn) {
+                    backToTopBtn.style.bottom = showStickyBar ? '76px' : '';
+                }
             }
 
             ticking = false;
@@ -139,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ticking = true;
             }
         }, { passive: true });
+        window.addEventListener('resize', updateHeaderState, { passive: true });
         updateHeaderState();
     }
 

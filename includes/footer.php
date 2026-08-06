@@ -21,7 +21,7 @@
                 <div class="flex items-center gap-2 mt-1">
                     <?php
                     $socials = [
-                        ['icon' => 'fa-facebook-f', 'href' => '#', 'label' => 'Facebook'],
+                        ['icon' => 'fa-facebook-f', 'href' => 'https://www.facebook.com/profile.php?id=100088038486097', 'label' => 'Facebook'],
                         ['icon' => 'fa-instagram', 'href' => '#', 'label' => 'Instagram'],
                         ['icon' => 'fa-whatsapp', 'href' => 'https://wa.me/' . str_replace('+', '', WHATSAPP_PHONE), 'label' => 'WhatsApp'],
                     ];
@@ -118,7 +118,7 @@
 <!-- WhatsApp FAB -->
 <a href="https://wa.me/<?php echo str_replace('+', '', WHATSAPP_PHONE); ?>?text=<?php echo urlencode('Hello, I am interested in reserving a room at Essafir Residence.'); ?>"
    target="_blank" rel="noopener"
-   class="whatsapp-fab fixed bottom-6 <?php echo $is_rtl ? 'left-6' : 'right-6'; ?> z-[99] w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)]"
+   class="whatsapp-fab fixed bottom-6 <?php echo $is_rtl ? 'left-6' : 'right-6'; ?> z-[99] w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-all duration-300"
    aria-label="<?php echo t('hero.cta_whatsapp'); ?>">
     <i class="fa-brands fa-whatsapp text-2xl"></i>
 </a>

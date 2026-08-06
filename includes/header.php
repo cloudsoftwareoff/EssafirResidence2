@@ -95,6 +95,9 @@ $og_image_url = $base_url . '/images/banner1.webp';
             "longitude": 9.47546
           },
           "hasMap": "https://maps.app.goo.gl/RHHgLRhDdyErYBFQA",
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=100088038486097"
+          ],
           "amenityFeature": [
             { "@type": "LocationFeatureSpecification", "name": "Free High-Speed WiFi", "value": true },
             { "@type": "LocationFeatureSpecification", "name": "24/7 Security & CCTV", "value": true },
