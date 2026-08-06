@@ -48,11 +48,12 @@
                         ['href' => 'index.php#rooms', 'label' => t('nav.rooms')],
                         ['href' => 'index.php#amenities', 'label' => t('nav.amenities')],
                         ['href' => 'index.php#location', 'label' => t('nav.location')],
+                        ['href' => 'sidi_bouzid.pdf', 'label' => t('ebook.title') . ' (PDF)', 'target' => '_blank'],
                         ['href' => 'index.php#contact', 'label' => t('nav.contact')],
                     ];
                     foreach ($footer_links as $link): ?>
                         <li>
-                            <a href="<?php echo $link['href']; ?>"
+                            <a href="<?php echo $link['href']; ?>" <?php echo isset($link['target']) ? 'target="' . $link['target'] . '" rel="noopener"' : ''; ?>
                                class="text-[13px] text-white/45 hover:text-white transition-colors duration-200 flex items-center gap-2">
                                 <span class="w-3 h-px bg-terra/50 inline-block shrink-0"></span>
                                 <?php echo $link['label']; ?>

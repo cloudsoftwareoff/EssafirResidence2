@@ -641,6 +641,26 @@ $hero_banners = [
                             <p class="text-[14px] text-olive leading-relaxed"><?php echo t('location.proximity_desc'); ?></p>
                         </div>
                     </div>
+
+                    <!-- Free eBook Guide Card -->
+                    <div class="mt-3 p-5 bg-sandstone border border-sand-border rounded-[8px] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-[6px] bg-terra/10 border border-terra/20 flex items-center justify-center text-terra shrink-0">
+                                <i class="fa-solid fa-file-pdf text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-[14px] font-bold text-olive leading-tight"><?php echo t('ebook.title'); ?></h4>
+                                <p class="text-[12px] text-clay-muted mt-0.5"><?php echo t('ebook.sub'); ?></p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0 w-full sm:w-auto">
+                            <a href="sidi_bouzid.pdf" target="_blank" rel="noopener" download
+                               class="inline-flex items-center justify-center gap-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-wider bg-terra text-white rounded-[4px] hover:bg-terra-dark transition-colors w-full sm:w-auto">
+                                <i class="fa-solid fa-download text-xs"></i>
+                                <?php echo t('ebook.download'); ?>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 

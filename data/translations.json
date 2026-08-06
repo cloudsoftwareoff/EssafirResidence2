@@ -97,6 +97,12 @@
       "proximity_title": "Strategic Proximity",
       "proximity_desc": "Perfectly situated within 5 minutes of local administrative centers, schools, and transit, making it ideal for visiting professionals and short-stay students."
     },
+    "ebook": {
+      "title": "Sidi Bouzid City & Travel Guide",
+      "sub": "Download our free guide with key locations, administrative centers, and local essentials.",
+      "download": "Download Free eBook (PDF)",
+      "preview": "View Guide"
+    },
     "contact": {
       "title": "Connect with Us",
       "sub": "Have questions or ready to book? Send us a message or contact our team directly.",
@@ -214,6 +220,12 @@
       "proximity_title": "Proximité stratégique",
       "proximity_desc": "Idéalement situé à moins de 5 minutes des administrations, écoles et transports locaux, parfait pour les professionnels et étudiants de passage."
     },
+    "ebook": {
+      "title": "Guide de la Ville de Sidi Bouzid",
+      "sub": "Téléchargez notre guide gratuit avec les lieux clés, les centres administratifs et les conseils pratiques.",
+      "download": "Télécharger le Guide (PDF)",
+      "preview": "Consulter le Guide"
+    },
     "contact": {
       "title": "Contactez-nous",
       "sub": "Des questions ou prêt à réserver ? Envoyez-nous un message ou contactez notre équipe.",
@@ -330,6 +342,12 @@
       "address_value": "عمارة لويزا، الطابق الأول، التقاسيم، سيدي بوزيد، تونس",
       "proximity_title": "موقع استراتيجي قريب",
       "proximity_desc": "موقع مثالي على بعد أقل من 5 دقائق من الإدارات المحلية، الكليات وسائل النقل، مما يجعله مثالياً للوافدين للعمل أو الدراسة."
+    },
+    "ebook": {
+      "title": "دليل مدينة سيدي بوزيد الشامل",
+      "sub": "حمل دليلنا المجاني لمعرفة أهم الأماكن، المراكز الإدارية، والمعالم الرئيسية في سيدي بوزيد.",
+      "download": "تحميل الدليل المجاني (PDF)",
+      "preview": "عرض الدليل"
     },
     "contact": {
       "title": "تواصل معنا",
