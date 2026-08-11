@@ -404,7 +404,6 @@ $og_image_url = $base_url . '/images/banner1.webp';
                 ['href' => 'index.php#gallery', 'label' => $lang === 'ar' ? 'المعرض' : ($lang === 'fr' ? 'Galerie' : 'Gallery')],
                 ['href' => 'index.php#amenities', 'label' => t('nav.amenities')],
                 ['href' => 'index.php#location', 'label' => t('nav.location')],
-                ['href' => 'index.php#guide', 'label' => t('nav.guide')],
                 ['href' => 'index.php#contact', 'label' => t('nav.contact')],
             ];
             foreach ($nav_items as $item): ?>
@@ -419,10 +418,10 @@ $og_image_url = $base_url . '/images/banner1.webp';
         <div class="flex items-center gap-3 shrink-0">
 
             <!-- eBook Guide Badge Button -->
-            <a href="sidi_bouzid_2.pdf" target="_blank" rel="noopener" download
+            <a href="index.php#guide"
                class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-[11px] font-bold tracking-wider uppercase text-terra bg-terra/10 border border-terra/30 hover:bg-terra hover:text-white rounded-[3px] transition-all duration-200"
-               title="Download Free Sidi Bouzid City & Travel Guide (PDF)">
-                <i class="fa-solid fa-file-pdf text-[12px]"></i>
+               title="<?php echo t('nav.guide'); ?>">
+                <i class="fa-solid fa-book-open text-[12px]"></i>
                 <span><?php echo t('nav.guide'); ?></span>
             </a>
 
@@ -489,7 +488,18 @@ $og_image_url = $base_url . '/images/banner1.webp';
 
     <!-- Drawer nav links -->
     <nav class="flex flex-col px-7 py-6 gap-1" aria-label="Mobile navigation">
-        <?php foreach ($nav_items as $item): ?>
+        <?php
+        $mobile_nav_items = [
+            ['href' => 'index.php#home', 'label' => t('nav.home')],
+            ['href' => 'index.php#residence', 'label' => t('nav.residence')],
+            ['href' => 'index.php#rooms', 'label' => t('nav.rooms')],
+            ['href' => 'index.php#gallery', 'label' => $lang === 'ar' ? 'المعرض' : ($lang === 'fr' ? 'Galerie' : 'Gallery')],
+            ['href' => 'index.php#amenities', 'label' => t('nav.amenities')],
+            ['href' => 'index.php#location', 'label' => t('nav.location')],
+            ['href' => 'index.php#guide', 'label' => t('nav.guide')],
+            ['href' => 'index.php#contact', 'label' => t('nav.contact')],
+        ];
+        foreach ($mobile_nav_items as $item): ?>
             <a href="<?php echo $item['href']; ?>"
                class="drawer-item flex items-center gap-3 px-3 py-3 text-[15px] font-medium text-clay-muted hover:text-olive hover:bg-sandstone rounded-[4px] transition-all duration-200">
                 <?php echo $item['label']; ?>
